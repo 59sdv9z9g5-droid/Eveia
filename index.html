@@ -373,6 +373,121 @@ header p {
   }
 }
 
+/* 🌿 EVEÏA : AQUARELLES PLUS NATURELLES */
+
+/* Bienvenue plus équilibrée */
+.bienvenue {
+  max-width: 1000px;
+  padding: 65px 20px 190px;
+  background-image: none !important;
+  position: relative;
+  isolation: isolate;
+}
+
+.bienvenue::before,
+.bienvenue::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 35%;
+  height: 170px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.bienvenue::before {
+  left: 0;
+  background-image: url("bienvenue-ourson.webp");
+  background-position: left bottom;
+}
+
+.bienvenue::after {
+  right: 0;
+  background-image: url("bienvenue-livres.webp");
+  background-position: right bottom;
+}
+
+/* Cartes plus légères */
+.carte {
+  background-image: none !important;
+  background-color: #E9EDDF;
+  padding: 160px 24px 28px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Illustration fondue dans chaque carte */
+.carte::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  height: 135px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 115% auto;
+  mix-blend-mode: multiply;
+  opacity: 0.82;
+  pointer-events: none;
+  border-radius: 18px;
+}
+
+/* Illustrations thématiques */
+#activites::before {
+  background-image: url("activites.webp");
+}
+
+#comptines::before {
+  background-image: url("comptines.webp");
+}
+
+#recettes::before {
+  background-image: url("recettes.webp");
+}
+
+#fiches::before {
+  background-image: url("fiches.webp");
+}
+
+.rubriques .carte:nth-child(5)::before {
+  background-image: url("eveiapedia.webp");
+}
+
+.rubriques .carte:nth-child(6)::before {
+  background-image: url("generateur.webp");
+}
+
+/* Titres sobres */
+.carte h3 {
+  color: #53694F;
+  margin-top: 5px;
+  margin-bottom: 22px;
+  font-size: 25px;
+}
+
+/* Confort sur téléphone */
+@media (max-width: 520px) {
+  .bienvenue {
+    padding-bottom: 140px;
+  }
+
+  .bienvenue::before,
+  .bienvenue::after {
+    width: 46%;
+    height: 120px;
+  }
+
+  .carte {
+    padding-top: 165px;
+  }
+}
+
   </style>
 </head>
 

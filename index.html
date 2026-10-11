@@ -254,6 +254,125 @@ footer {
   }
 }
 
+/* 🌷 EVEÏA : ILLUSTRATIONS AQUARELLE */
+
+/* Bandeau fleuri avec petit oiseau */
+header {
+  background-color: #81967C;
+  background-image: url("bandeau.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 45px 20px;
+}
+
+header h1,
+header p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Bienvenue : ourson, jouets et livres */
+.bienvenue {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 65px 20px 220px;
+
+  background-image:
+    url("bienvenue-ourson.webp"),
+    url("bienvenue-livres.webp");
+
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    left bottom,
+    right bottom;
+
+  background-size:
+    45% auto,
+    45% auto;
+}
+
+.bienvenue h2,
+.bienvenue p,
+.bienvenue .bouton {
+  position: relative;
+  z-index: 1;
+}
+
+/* Six cartes avec leurs aquarelles */
+.carte {
+  background-color: #E9EDDF;
+  background-repeat: no-repeat;
+  background-position: center 12px;
+  background-size: calc(100% - 20px) auto;
+  padding-top: 175px;
+  overflow: hidden;
+}
+
+/* Activités */
+#activites {
+  background-image: url("activites.webp");
+}
+
+/* Comptines */
+#comptines {
+  background-image: url("comptines.webp");
+}
+
+/* Recettes */
+#recettes {
+  background-image: url("recettes.webp");
+}
+
+/* Fiches pratiques */
+#fiches {
+  background-image: url("fiches.webp");
+}
+
+/* EveïaPédia : cinquième carte */
+.rubriques .carte:nth-child(5) {
+  background-image: url("eveiapedia.webp");
+}
+
+/* Générateur : sixième carte */
+.rubriques .carte:nth-child(6) {
+  background-image: url("generateur.webp");
+}
+
+/* Titres des cartes */
+.carte h3 {
+  margin-top: 0;
+  color: #53694F;
+}
+
+/* Ajustements pour tablette */
+@media (max-width: 800px) {
+  .bienvenue {
+    padding-bottom: 170px;
+  }
+
+  .carte {
+    padding-top: 155px;
+  }
+}
+
+/* Ajustements pour téléphone */
+@media (max-width: 520px) {
+  header {
+    background-position: center;
+  }
+
+  .bienvenue {
+    padding-bottom: 135px;
+    background-size: 48% auto, 48% auto;
+  }
+
+  .carte {
+    padding-top: 185px;
+  }
+}
+
   </style>
 </head>
 

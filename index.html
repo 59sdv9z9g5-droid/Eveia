@@ -542,6 +542,64 @@ header p {
   }
 }
 
+/* 🌷 EVEÏA : FOND AQUARELLE INTÉGRÉ */
+
+/* Décor floral fondu dans la page */
+main {
+  position: relative;
+  max-width: none;
+  margin: 0;
+  padding: 35px max(20px, calc((100% - 1000px) / 2));
+
+  background-color: #F8F4EC;
+  background-image:
+    url("motifs-gauche.png"),
+    url("motifs-droite.png");
+
+  background-repeat: repeat-y, repeat-y;
+  background-position: left top, right top;
+  background-size: 24% auto, 24% auto;
+}
+
+/* Retirer les anciennes images isolées */
+.bienvenue {
+  background-image: none !important;
+  padding: 65px 20px 95px;
+  max-width: 850px;
+}
+
+.bienvenue::before,
+.bienvenue::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Les textes restent au premier plan */
+.bienvenue h2,
+.bienvenue p,
+.bienvenue .bouton {
+  position: relative;
+  z-index: 1;
+}
+
+/* Cartes plus douces */
+.carte {
+  background-color: rgba(233, 237, 223, 0.93);
+  border-left: 4px solid #B7806D;
+}
+
+/* Confort sur petits écrans */
+@media (max-width: 600px) {
+  main {
+    padding: 25px 16px;
+    background-size: 34% auto, 34% auto;
+  }
+
+  .bienvenue {
+    padding: 45px 12px 65px;
+  }
+}
+
   </style>
 </head>
 

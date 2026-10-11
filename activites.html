@@ -32,12 +32,14 @@ h2{font-family:Georgia,serif;font-weight:normal;color:#b7806d}
 .category{position:relative;overflow:hidden;text-align:center;align-items:center;justify-content:flex-end;padding:145px 12px 20px;min-height:235px;border:1px solid #e1e5d9;border-radius:17px;background:#e5ebdd;color:#4e5548;transition:transform .2s,box-shadow .2s}
 .category:hover{transform:translateY(-3px);box-shadow:0 8px 20px #65735d22;background:#e5ebdd}
 .category::before{content:"";position:absolute;inset:9px 12px auto;height:135px;background-position:center;background-size:contain;background-repeat:no-repeat;mix-blend-mode:multiply;opacity:.88;pointer-events:none}
-.category:nth-child(1)::before{background-image:url("activites.webp")}
-.category:nth-child(2)::before{background-image:url("fiches.webp")}
-.category:nth-child(3)::before{background-image:url("generateur.webp")}
-.category:nth-child(4)::before{background-image:url("comptines.webp")}
-.category:nth-child(5)::before{background-image:url("recettes.webp")}
-.category:nth-child(6)::before{background-image:url("eveiapedia.webp")}
+
+.category:nth-child(1)::before{background-image:url("activite-sensoriel.webp")}
+.category:nth-child(2)::before{background-image:url("activite-creatives.webp")}
+.category:nth-child(3)::before{background-image:url("activite-motricite.webp")}
+.category:nth-child(4)::before{background-image:url("activite-langage.webp")}
+.category:nth-child(5)::before{background-image:url("activite-manipulation.webp")}
+.category:nth-child(6)::before{background-image:url("activite-nature.webp")}
+
 .category strong{font-size:22px;line-height:1.2}.category span{font-size:13px;line-height:1.45}
 #sensoriel>h2{text-align:center;font-size:35px}#sensoriel>p:not(.count):not(.empty){text-align:center}
 .toolbar{background:#fffdf9d9;border-color:#e5dfd2;box-shadow:0 3px 15px #5c624a0d}

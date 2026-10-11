@@ -385,6 +385,42 @@ search.addEventListener('input',update);
 age.addEventListener('change',update);
 document.getElementById('reset').addEventListener('click',()=>{search.value='';age.value='all';update();});
 update();
+  
+const categories = document.querySelectorAll('.category');
+const sections = ['sensoriel', 'creatives'];
+
+function ouvrirCategorie(id) {
+  // Masquer les fiches des autres catégories
+  sections.forEach(nom => {
+    document.getElementById(nom).hidden = nom !== id;
+  });
+
+  // Masquer les catégories encore en préparation
+  document.querySelector('.future').hidden = true;
+
+  // Afficher les catégories en haut de page
+  document.querySelector('.categories').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+
+categories.forEach(categorie => {
+  categorie.addEventListener('click', event => {
+    const id = categorie.getAttribute('href').slice(1);
+
+    if (sections.includes(id)) {
+      event.preventDefault();
+      ouvrirCategorie(id);
+    }
+  });
+});
+
+// Au départ, aucune liste d'activités n'est ouverte.
+sections.forEach(id => {
+  document.getElementById(id).hidden = true;
+});
+
 </script>
 </body>
 </html>

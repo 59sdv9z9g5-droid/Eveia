@@ -16,11 +16,43 @@ main{max-width:1060px;margin:auto;padding:30px 20px 70px}h2{font:normal 34px Geo
 .future{margin-top:44px;padding:24px;background:var(--pale);border-radius:18px}.future h3{margin-top:0}footer{background:var(--sage);color:white;text-align:center;padding:25px}footer p{margin:4px}
 @media(max-width:760px){.categories{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:500px){.categories{grid-template-columns:1fr}.intro h2{font-size:30px}main{padding:22px 15px 50px}header h1{font-size:42px}}
 @media print{nav,.toolbar,footer{display:none}body{background:white}.categories,.future{display:none}details.activity{break-inside:avoid}details.activity:not([open]){display:none}}
+
+/* Identité visuelle Eveïa : illustrations du dépôt existant, sans images externes */
+body{background:#f8f3ea;color:#4e5548}
+header{background:#81967c url("bandeau.webp") center/cover no-repeat;padding:27px 18px;text-shadow:0 1px 4px #53654b66}
+header h1{font-size:clamp(38px,5vw,54px)}
+nav{background:#edeee2}nav a{padding:4px 2px}nav a[aria-current="page"]{color:#b7806d;border-bottom:2px solid #b7806d}
+main{max-width:none;padding:35px max(18px,calc((100% - 1120px)/2)) 70px;background-color:#f8f3ea;background-image:url("motifs-gauche.png"),url("motifs-droite.png");background-position:left top,right top;background-repeat:repeat-y,repeat-y;background-size:20% auto,20% auto}
+main>section{position:relative}
+.intro{padding:35px 12px 28px;max-width:720px;margin-bottom:15px}
+.intro h2{font-size:clamp(36px,5vw,54px);margin:13px 0;color:#b7806d}
+.intro p{line-height:1.7}.tag{background:#e5ebdd;color:#53694f}
+h2{font-family:Georgia,serif;font-weight:normal;color:#b7806d}
+.categories{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.category{position:relative;overflow:hidden;text-align:center;align-items:center;justify-content:flex-end;padding:145px 12px 20px;min-height:235px;border:1px solid #e1e5d9;border-radius:17px;background:#e5ebdd;color:#4e5548;transition:transform .2s,box-shadow .2s}
+.category:hover{transform:translateY(-3px);box-shadow:0 8px 20px #65735d22;background:#e5ebdd}
+.category::before{content:"";position:absolute;inset:9px 12px auto;height:135px;background-position:center;background-size:contain;background-repeat:no-repeat;mix-blend-mode:multiply;opacity:.88;pointer-events:none}
+.category:nth-child(1)::before{background-image:url("activites.webp")}
+.category:nth-child(2)::before{background-image:url("fiches.webp")}
+.category:nth-child(3)::before{background-image:url("generateur.webp")}
+.category:nth-child(4)::before{background-image:url("comptines.webp")}
+.category:nth-child(5)::before{background-image:url("recettes.webp")}
+.category:nth-child(6)::before{background-image:url("eveiapedia.webp")}
+.category strong{font-size:22px;line-height:1.2}.category span{font-size:13px;line-height:1.45}
+#sensoriel>h2{text-align:center;font-size:35px}#sensoriel>p:not(.count):not(.empty){text-align:center}
+.toolbar{background:#fffdf9d9;border-color:#e5dfd2;box-shadow:0 3px 15px #5c624a0d}
+.activity-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+details.activity{background:#fffdf9ed;border:1px solid #e5dfd4;border-radius:16px;border-left:4px solid #a8b49c;box-shadow:0 3px 12px #756c5b0a}
+details.activity summary{min-height:105px;padding:21px 18px}details.activity summary:hover{background:#f6f5ed}
+.future{background:#e5ebdde8;border:1px solid #d8dfcf}
+@media(max-width:760px){main{background-size:26% auto,26% auto}.categories{grid-template-columns:repeat(2,minmax(0,1fr))}.activity-list{grid-template-columns:1fr}}
+@media(max-width:500px){main{padding:20px 15px 50px;background-size:35% auto,35% auto}.categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.category{min-height:195px;padding:115px 9px 15px}.category::before{height:105px;inset:8px 8px auto}.category strong{font-size:18px}.category span{font-size:12px}.intro{padding:18px 5px}.intro h2{font-size:36px}nav a{margin:4px 8px}}
+@media print{main{background:none}.category::before{display:none}}
 </style>
 </head>
 <body>
-<header><h1>Eveïa</h1><p>Activités pédagogiques pour les tout-petits</p></header>
-<nav aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="activites.html" aria-current="page">Activités</a><a href="eveiapedia.html">EveïaPédia</a></nav>
+<header><h1>Eveïa 🌿</h1><p>Un espace pensé pour les professionnels de la petite enfance</p></header>
+<nav aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="activites.html" aria-current="page">Activités</a><a href="comptines.html">Comptines</a><a href="recettes.html">Recettes</a><a href="eveiapedia.html">EveïaPédia</a></nav>
 <main>
 <section class="intro"><span class="tag">De 2 mois à 3 ans</span><h2>Explorer, jouer, grandir</h2><p>Des propositions d'activités pensées pour les professionnels de la petite enfance, à adapter au développement, aux besoins et aux envies de chaque enfant.</p><p>Les âges et durées sont indicatifs. L'observation et le plaisir de découvrir restent prioritaires.</p></section>
 <section aria-label="Domaines d'activités"><h2>Les univers d'activités</h2><div class="categories">

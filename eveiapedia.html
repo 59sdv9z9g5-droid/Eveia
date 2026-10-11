@@ -252,6 +252,85 @@ color: #BD7965;
   }
 }
 
+/* 🌷 EVEÏAPÉDIA : CARTES AQUARELLE */
+
+.categories li {
+  padding: 0 !important;
+  min-height: 220px;
+  aspect-ratio: 1 / 1;
+  border: none !important;
+  border-radius: 22px;
+  background-color: #E5EBDD;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Désactiver les anciens motifs */
+.categories li::before,
+.categories li::after {
+  display: none !important;
+}
+
+/* Une illustration différente par carte */
+.categories li:nth-child(1) {
+  background-image: url("sante.png");
+}
+
+.categories li:nth-child(2) {
+  background-image: url("developpement.png");
+}
+
+.categories li:nth-child(3) {
+  background-image: url("reglementation.png");
+}
+
+.categories li:nth-child(4) {
+  background-image: url("alimentation.png");
+}
+
+.categories li:nth-child(5) {
+  background-image: url("securite.png");
+}
+
+.categories li:nth-child(6) {
+  background-image: url("pratiques.png");
+}
+
+/* Les titres sont déjà dessinés sur les images */
+.categories li a {
+  font-size: 0 !important;
+  color: transparent !important;
+  width: 100%;
+  height: 100%;
+  min-height: 0 !important;
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* Cacher le texte visible des cartes sans lien */
+.categories li:not(:has(a)) {
+  font-size: 0 !important;
+}
+
+/* Deux colonnes sur tablette */
+@media (max-width: 899px) {
+  .categories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Une colonne sur petit téléphone */
+@media (max-width: 480px) {
+  .categories {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 
 </head>

@@ -50,6 +50,23 @@ details.activity summary{min-height:105px;padding:21px 18px}details.activity sum
 @media(max-width:760px){main{background-size:26% auto,26% auto}.categories{grid-template-columns:repeat(2,minmax(0,1fr))}.activity-list{grid-template-columns:1fr}}
 @media(max-width:500px){main{padding:20px 15px 50px;background-size:35% auto,35% auto}.categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.category{min-height:195px;padding:115px 9px 15px}.category::before{height:105px;inset:8px 8px auto}.category strong{font-size:18px}.category span{font-size:12px}.intro{padding:18px 5px}.intro h2{font-size:36px}nav a{margin:4px 8px}}
 @media print{main{background:none}.category::before{display:none}}
+  
+/* Afficher uniquement la catégorie sélectionnée */
+section[hidden] {
+  display: none !important;
+}
+
+/* Mettre en valeur la catégorie choisie */
+.category:focus-visible {
+  outline: 3px solid #b7806d;
+  outline-offset: 3px;
+}
+
+#creatives > h2 {
+  text-align: center;
+  font-size: 35px;
+}
+
 </style>
 </head>
 <body>

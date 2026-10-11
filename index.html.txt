@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eveïa - Accueil</title>
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #F7F2E9;
+      color: #514C43;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #81967C;
+      padding: 25px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin: 0;
+    }
+
+    header p {
+      margin-bottom: 0;
+    }
+
+    nav {
+      background-color: #E5EBDD;
+      padding: 18px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #514C43;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin: 8px 12px;
+    }
+
+    nav a:hover {
+      color: #BD7965;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 35px 20px;
+    }
+
+    .bienvenue {
+      text-align: center;
+      padding: 35px 15px;
+    }
+
+    h2 {
+      color: #BD7965;
+      font-size: 32px;
+    }
+
+    .bienvenue p {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .bouton {
+      display: inline-block;
+      background-color: #BD7965;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .rubriques {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .carte {
+      background-color: #E5EBDD;
+      padding: 25px;
+      border-radius: 18px;
+      border-left: 5px solid #BD7965;
+    }
+
+    .carte h3 {
+      color: #81967C;
+      font-size: 22px;
+    }
+
+    .carte p {
+      line-height: 1.6;
+    }
+
+    .carte a {
+      color: #BD7965;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+      background-color: #81967C;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Eveïa 🌿</h1>
+    <p>Un espace pensé pour les professionnels de la petite enfance</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="#activites">Activités</a>
+    <a href="#comptines">Comptines</a>
+    <a href="#recettes">Recettes</a>
+    <a href="#fiches">Fiches pratiques</a>
+    <a href="eveiapedia.html">EveïaPédia</a>
+  </nav>
+
+  <main>
+
+    <section class="bienvenue">
+      <h2>Bienvenue sur Eveïa</h2>
+
+      <p>
+        Un espace de partage, d'inspiration et de ressources
+        pour accompagner les professionnels de la petite enfance
+        dans leur quotidien.
+      </p>
+
+      <p>
+        Découvrez des activités, des comptines, des recettes
+        et des fiches pratiques adaptées aux tout-petits.
+      </p>
+
+      <a class="bouton" href="#activites">
+        Découvrir les activités
+      </a>
+    </section>
+
+    <h2>Explorer Eveïa</h2>
+
+    <section class="rubriques">
+
+      <article class="carte" id="activites">
+        <h3>🎨 Activités</h3>
+        <p>
+          Des idées d'activités adaptées à l'âge,
+          aux besoins et au développement des enfants.
+        </p>
+        <p>Rubrique en préparation.</p>
+      </article>
+
+      <article class="carte" id="comptines">
+        <h3>🎵 Comptines</h3>
+        <p>
+          Retrouvez des chansons, des comptines
+          et des jeux de doigts à partager avec les enfants.
+        </p>
+        <p>Rubrique en préparation.</p>
+      </article>
+
+      <article class="carte" id="recettes">
+        <h3>🍎 Recettes</h3>
+        <p>
+          Des recettes simples pour organiser
+          des ateliers cuisine avec les tout-petits.
+        </p>
+        <p>Rubrique en préparation.</p>
+      </article>
+
+      <article class="carte" id="fiches">
+        <h3>🩺 Fiches pratiques</h3>
+        <p>
+          Des ressources sur les soins, l'hygiène,
+          la sécurité et l'accompagnement des enfants.
+        </p>
+        <a href="sante-hygiene.html">
+          Voir Santé et hygiène
+        </a>
+      </article>
+
+      <article class="carte">
+        <h3>📚 EveïaPédia</h3>
+        <p>
+          Une encyclopédie professionnelle
+          pour retrouver facilement des informations utiles.
+        </p>
+        <a href="eveiapedia.html">
+          Explorer EveïaPédia
+        </a>
+      </article>
+
+      <article class="carte">
+        <h3>✨ Générateur d'activités</h3>
+        <p>
+          Bientôt, créez des idées d'activités selon
+          l'âge des enfants, le temps et le matériel disponible.
+        </p>
+        <p>Fonctionnalité en préparation.</p>
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer>
+    Eveïa 🌿
+    <p>Grandir, découvrir et partager.</p>
+  </footer>
+
+</body>
+</html>

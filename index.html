@@ -488,6 +488,60 @@ header p {
   }
 }
 
+/* 🌷 BIENVENUE PLUS ÉQUILIBRÉE */
+
+.bienvenue {
+  max-width: 1100px;
+  padding: 65px 20px 150px;
+  position: relative;
+  isolation: isolate;
+}
+
+.bienvenue::before,
+.bienvenue::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 30%;
+  height: 170px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  opacity: 0.95;
+  z-index: 0;
+}
+
+.bienvenue::before {
+  left: 0;
+  background-image: url("bienvenue-ourson.webp");
+  background-position: left bottom;
+}
+
+.bienvenue::after {
+  right: 0;
+  background-image: url("bienvenue-livres.webp");
+  background-position: right bottom;
+}
+
+.bienvenue h2,
+.bienvenue p,
+.bienvenue .bouton {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .bienvenue {
+    padding: 40px 12px 125px;
+  }
+
+  .bienvenue::before,
+  .bienvenue::after {
+    width: 46%;
+    height: 115px;
+  }
+}
+
   </style>
 </head>
 

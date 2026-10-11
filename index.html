@@ -113,7 +113,147 @@
       margin-top: 40px;
       background-color: #81967C;
       color: white;
-    }
+    } 
+/* 🌷 NOUVEL UNIVERS EVEÏA */
+
+body {
+  background: #F8F4EC;
+  color: #514C43;
+}
+
+/* Bandeau vert sauge */
+header {
+  background: #81967C;
+  padding: 38px 20px;
+}
+
+header h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(42px, 6vw, 64px);
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+header p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Navigation douce */
+nav {
+  background: #E9EDDF;
+  border-bottom: 1px solid #DCE3D3;
+}
+
+nav a {
+  border-radius: 25px;
+  padding: 7px 10px;
+  transition: background 0.2s;
+}
+
+nav a:hover {
+  background: #F7F2E9;
+}
+
+/* Espace de bienvenue */
+.bienvenue {
+  padding: 65px 20px;
+  max-width: 780px;
+  margin: auto;
+}
+
+h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  color: #B7806D;
+  font-size: clamp(30px, 4vw, 40px);
+}
+
+.bienvenue p {
+  line-height: 1.85;
+  max-width: 700px;
+  margin: 22px auto;
+}
+
+.bouton {
+  background: #B7806D;
+  border-radius: 15px;
+  padding: 16px 28px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.bouton:hover {
+  background: #A86F5B;
+  transform: translateY(-2px);
+}
+
+/* Six cartes harmonisées */
+.rubriques {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.carte {
+  background: #E9EDDF;
+  border-left: 5px solid #B7806D;
+  border-radius: 22px;
+  padding: 28px 24px;
+  min-width: 0;
+  box-sizing: border-box;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.carte:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(81,76,67,0.08);
+}
+
+.carte h3 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  color: #53694F;
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+.carte p {
+  line-height: 1.75;
+}
+
+.carte a {
+  color: #AD735F;
+  text-underline-offset: 4px;
+}
+
+/* Pied de page */
+footer {
+  background: #81967C;
+  padding: 35px 20px;
+}
+
+/* Adaptation tablette */
+@media (max-width: 800px) {
+  .rubriques {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Adaptation téléphone */
+@media (max-width: 520px) {
+  .rubriques {
+    grid-template-columns: 1fr;
+  }
+
+  .bienvenue {
+    padding: 40px 10px;
+  }
+
+  .carte {
+    padding: 24px;
+  }
+}
+
   </style>
 </head>
 

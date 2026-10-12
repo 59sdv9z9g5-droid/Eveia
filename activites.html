@@ -457,13 +457,7 @@ function ouvrirCategorie(id) {
   });
 }
 
-categories.forEach(categorie => {
-  categorie.addEventListener('click', event => {
-    const id = categorie.getAttribute('href').slice(1);
 
-    if (sections.includes(id)) {
-      event.preventDefault();
-      ouvrirCategorie(id);
     }
   });
 });

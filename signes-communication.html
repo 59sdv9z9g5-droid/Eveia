@@ -667,10 +667,17 @@ function render() {
     );
 
     body.append(status,title,description,link);
-    if (item.word === 'Boire' || item.word === 'Manger') {
+   if (videosLSF[item.word]) {
   const credit = document.createElement('p');
   credit.style.fontSize = '12px';
-  credit.textContent = 'Vidéo : Laura Jauvert, Wikimedia Commons, CC BY 3.0';
+  credit.textContent = 'Vidéo LSF : Laura Jauvert · ';
+
+const source = document.createElement('a');
+source.href = 'https://commons.wikimedia.org/wiki/File:' + videosLSF[item.word];
+source.target = '_blank';
+source.rel = 'noopener noreferrer';
+source.textContent = 'Source et licence';
+credit.append(source);
   body.append(credit);
 }
     card.append(visual,body);

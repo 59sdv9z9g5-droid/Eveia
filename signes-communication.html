@@ -1,1 +1,674 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signes & communication | Eveïa</title>
+
+<style>
+:root {
+  --sage:#81967c;
+  --pale:#e5ebdd;
+  --cream:#f8f3ea;
+  --terra:#b7806d;
+  --ink:#4e5548;
+}
+
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font:16px/1.65 Arial,sans-serif;
+}
+
+header {
+  background:#81967c url("bandeau.webp") center/cover no-repeat;
+  color:white;
+  text-align:center;
+  padding:27px 18px;
+  text-shadow:0 1px 4px #53654b66;
+}
+
+header h1 {
+  font:normal clamp(38px,5vw,54px) Georgia,serif;
+  margin:0;
+}
+
+header p { margin:6px 0 0; }
+
+nav {
+  background:#edeee2;
+  padding:13px;
+  text-align:center;
+}
+
+nav a {
+  display:inline-block;
+  color:var(--ink);
+  font-weight:bold;
+  text-decoration:none;
+  margin:5px 12px;
+  padding:4px 2px;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color:var(--terra);
+}
+
+main {
+  min-height:70vh;
+  padding:35px max(18px,calc((100% - 1120px)/2)) 70px;
+  background-color:var(--cream);
+  background-image:url("motifs-gauche.png"),url("motifs-droite.png");
+  background-position:left top,right top;
+  background-repeat:repeat-y;
+  background-size:20% auto;
+}
+
+h2 {
+  font:normal 34px Georgia,serif;
+  color:var(--terra);
+}
+
+h3 { color:#526b50; }
+
+.intro {
+  max-width:740px;
+  text-align:center;
+  margin:0 auto 35px;
+  padding:30px 12px;
+}
+
+.intro h2 {
+  font-size:clamp(34px,5vw,52px);
+  margin:14px 0;
+}
+
+.tag {
+  display:inline-block;
+  background:var(--pale);
+  color:#53694f;
+  border-radius:50px;
+  padding:5px 14px;
+  font-size:13px;
+}
+
+.categories {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+  margin:24px 0 36px;
+}
+
+.category {
+  border:1px solid #dfe5d8;
+  background:var(--pale);
+  border-radius:17px;
+  padding:22px 15px;
+  min-height:155px;
+  text-align:center;
+  color:var(--ink);
+  cursor:pointer;
+  font:inherit;
+  transition:transform .2s,box-shadow .2s;
+}
+
+.category:hover {
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px #65735d22;
+}
+
+.category[aria-pressed="true"] {
+  outline:3px solid var(--terra);
+  outline-offset:2px;
+}
+
+.category .emoji {
+  display:block;
+  font-size:34px;
+  margin-bottom:9px;
+}
+
+.category strong {
+  display:block;
+  font:normal 22px Georgia,serif;
+  color:#526b50;
+}
+
+.category small {
+  display:block;
+  margin-top:6px;
+  line-height:1.4;
+}
+
+.toolbar {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:end;
+  gap:12px;
+  background:#fffdf9df;
+  border:1px solid #e5dfd2;
+  border-radius:17px;
+  padding:18px;
+  margin:25px 0 12px;
+}
+
+.toolbar label {
+  flex:1 1 260px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.toolbar input {
+  font:inherit;
+  padding:11px;
+  border:1px solid #c8c9bc;
+  border-radius:10px;
+  min-width:0;
+}
+
+.toolbar button {
+  font:inherit;
+  border:0;
+  border-radius:10px;
+  background:var(--terra);
+  color:white;
+  padding:11px 17px;
+  cursor:pointer;
+}
+
+.count {
+  font-size:14px;
+  color:#6b665e;
+}
+
+.sign-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+}
+
+.sign-card {
+  background:#fffdf9ed;
+  border:1px solid #e5dfd4;
+  border-radius:17px;
+  overflow:hidden;
+  box-shadow:0 3px 12px #756c5b0a;
+}
+
+.sign-image {
+  height:160px;
+  background:var(--pale);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:14px;
+  color:#657660;
+}
+
+.sign-image span { font-size:32px; }
+
+.sign-image small {
+  font-size:13px;
+  max-width:190px;
+}
+
+.sign-body { padding:16px 18px 20px; }
+
+.sign-body h3 {
+  font:normal 25px Georgia,serif;
+  margin:0 0 4px;
+}
+
+.sign-body p {
+  margin:0 0 12px;
+  font-size:14px;
+}
+
+.sign-body a {
+  color:#a66c58;
+  font-weight:bold;
+  text-underline-offset:3px;
+}
+
+.pending {
+  display:inline-block;
+  border-radius:40px;
+  background:#f5eee4;
+  padding:3px 10px;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.empty {
+  display:none;
+  background:white;
+  border-radius:12px;
+  padding:20px;
+}
+
+.info {
+  margin-top:48px;
+  background:#e5ebdde8;
+  border:1px solid #d8dfcf;
+  border-radius:18px;
+  padding:22px 26px;
+}
+
+.info details {
+  border-top:1px solid #cbd5c3;
+  padding:12px 0;
+}
+
+.info summary {
+  cursor:pointer;
+  font-weight:bold;
+  color:#526b50;
+}
+
+.info p { margin:10px 0; }
+.info a { color:#a66c58; }
+
+footer {
+  background:var(--sage);
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+footer p { margin:4px; }
+
+@media(max-width:760px) {
+  main { background-size:26% auto,26% auto; }
+  .categories,.sign-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:500px) {
+  main {
+    padding:20px 15px 50px;
+    background-size:35% auto,35% auto;
+  }
+
+  .categories { gap:10px; }
+  .category { min-height:135px;padding:15px 8px; }
+  .category strong { font-size:18px; }
+  .category small { font-size:12px; }
+  .sign-grid { gap:10px; }
+  .sign-image { height:125px; }
+  .sign-body { padding:12px; }
+  .sign-body h3 { font-size:21px; }
+  .intro { padding:18px 5px; }
+  nav a { margin:4px 8px; }
+}
+
+@media print {
+  nav,.categories,.toolbar,footer { display:none; }
+  main { background:none;padding:10px; }
+  .sign-card { break-inside:avoid; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Eveïa 🌿</h1>
+  <p>Un espace pensé pour les professionnels de la petite enfance</p>
+</header>
+
+<nav aria-label="Navigation principale">
+  <a href="index.html">Accueil</a>
+  <a href="activites.html">Activités</a>
+  <a href="comptines.html">Comptines</a>
+  <a href="recettes.html">Recettes</a>
+  <a href="eveiapedia.html">EveïaPédia</a>
+  <a href="signes-communication.html" aria-current="page">Signes & communication</a>
+</nav>
+
+<main>
+
+<section class="intro">
+  <span class="tag">Communication gestuelle associée à la parole · 0–3 ans</span>
+
+  <h2>Des signes pour accompagner les mots</h2>
+
+  <p>
+    Un imagier pensé pour la vie en crèche :
+    les repas, les soins, le jeu, les émotions
+    et toutes ces petites découvertes qui rythment la journée.
+  </p>
+
+  <p>
+    Nous privilégions les <strong>signes authentiques de la LSF</strong>,
+    associés à la parole. Chaque démonstration sera vérifiée
+    avant d'être ajoutée.
+  </p>
+</section>
+
+<section aria-labelledby="categories-title">
+
+  <h2 id="categories-title">Explorer les signes du quotidien</h2>
+
+  <div class="categories">
+
+    <button type="button" class="category" data-category="repas" aria-pressed="false">
+      <span class="emoji">🍎</span>
+      <strong>Le repas</strong>
+      <small>Manger, boire, encore, fini…</small>
+    </button>
+
+    <button type="button" class="category" data-category="sommeil" aria-pressed="false">
+      <span class="emoji">🌙</span>
+      <strong>Le sommeil</strong>
+      <small>Dormir, doudou, tétine…</small>
+    </button>
+
+    <button type="button" class="category" data-category="soins" aria-pressed="false">
+      <span class="emoji">🫧</span>
+      <strong>Les soins</strong>
+      <small>Changer, laver, toilettes…</small>
+    </button>
+
+    <button type="button" class="category" data-category="jeux" aria-pressed="false">
+      <span class="emoji">🧸</span>
+      <strong>Jeux et activités</strong>
+      <small>Jouer, livre, musique…</small>
+    </button>
+
+    <button type="button" class="category" data-category="emotions" aria-pressed="false">
+      <span class="emoji">❤️</span>
+      <strong>Émotions et relations</strong>
+      <small>Bonjour, câlin, triste…</small>
+    </button>
+
+    <button type="button" class="category" data-category="mouvements" aria-pressed="false">
+      <span class="emoji">🌱</span>
+      <strong>Mouvements et actions</strong>
+      <small>Tomber, grimper, marcher…</small>
+    </button>
+
+  </div>
+</section>
+
+<section aria-labelledby="imagier-title">
+
+  <h2 id="imagier-title">L'imagier des signes</h2>
+
+  <p>
+    Choisissez un thème ou recherchez un mot.
+    Les illustrations des mouvements seront ajoutées
+    après vérification de leur exactitude.
+  </p>
+
+  <div class="toolbar">
+    <label>
+      Rechercher un signe
+      <input id="search" type="search"
+             placeholder="Ex. tomber, encore, dormir…">
+    </label>
+
+    <button type="button" id="reset">
+      Afficher tous les signes
+    </button>
+  </div>
+
+  <p class="count" id="count" aria-live="polite"></p>
+
+  <div class="sign-grid" id="signs"></div>
+
+  <p class="empty" id="empty">
+    Aucun mot trouvé. Essayez une autre recherche.
+  </p>
+
+</section>
+
+<section class="info">
+
+  <h2>Comprendre et pratiquer en crèche</h2>
+
+  <details>
+    <summary>Pourquoi associer des signes à la parole ?</summary>
+    <p>
+      Les signes offrent un moyen supplémentaire
+      d'entrer en interaction et d'exprimer des intentions,
+      notamment lorsque la parole est encore en construction.
+      Ils peuvent soutenir l'attention partagée
+      et la compréhension dans certaines situations.
+      Les bénéfices varient selon les enfants et les contextes :
+      il ne faut pas promettre une accélération systématique
+      du langage oral.
+    </p>
+  </details>
+
+  <details>
+    <summary>Comment signer au quotidien ?</summary>
+    <p>
+      On continue à parler naturellement et on accompagne
+      certains mots importants d'un signe.
+      On peut signer « tomber » en disant « Tu es tombé ? »
+      ou « grimper » en disant « Tu grimpes ! ».
+      L'enfant reste libre de regarder, d'essayer
+      ou non de reproduire le signe.
+    </p>
+  </details>
+
+  <details>
+    <summary>Quelle différence avec la LSF ?</summary>
+    <p>
+      La langue des signes française est une langue complète,
+      avec sa propre grammaire et sa culture.
+      En communication gestuelle associée à la parole,
+      on emprunte des signes à la LSF pour accompagner
+      le français oral : ce n'est pas la même chose
+      que communiquer en LSF.
+    </p>
+  </details>
+
+  <details>
+    <summary>Comment assurer la fiabilité des signes ?</summary>
+    <p>
+      Pour chaque signe, nous vérifierons la forme des mains,
+      l'orientation, l'emplacement et le mouvement
+      à partir de démonstrations fiables,
+      notamment le
+      <a href="https://dico.elix-lsf.fr/" target="_blank" rel="noopener noreferrer">
+        dictionnaire Elix
+      </a>.
+      Certaines variantes existent.
+      Aucune illustration non vérifiée ne sera présentée
+      comme un signe LSF.
+    </p>
+  </details>
+
+  <details>
+    <summary>Une démarche d'équipe et de familles</summary>
+    <p>
+      Une sélection commune de signes utiles permet
+      aux professionnels de rester cohérents.
+      On peut partager les signes choisis avec les familles,
+      sans leur imposer la pratique.
+      La communication gestuelle complète les échanges verbaux,
+      les expressions du visage, le regard
+      et l'observation attentive de chaque enfant.
+    </p>
+  </details>
+
+</section>
+
+</main>
+
+<footer>
+  <strong>Eveïa</strong>
+  <p>Grandir, découvrir et partager.</p>
+</footer>
+
+<script>
+const groups = {
+  repas: [
+    'Manger','Boire','Encore','Fini',
+    'Eau','Bon','Merci'
+  ],
+  sommeil: [
+    'Dormir','Doudou','Tétine',
+    'Fatigué','Réveil'
+  ],
+  soins: [
+    'Changer','Couche','Laver','Mains',
+    'Propre','Toilettes','Bobo'
+  ],
+  jeux: [
+    'Jouer','Livre','Musique','Chanter',
+    'Aider','Attendre','Regarder'
+  ],
+  emotions: [
+    'Bonjour','Au revoir','Content','Triste',
+    'Peur','Câlin','Mal','Papa','Maman'
+  ],
+  mouvements: [
+    'Tomber','Grimper','Marcher','Courir',
+    'Sauter','Monter','Descendre',
+    'Pousser','Tirer','Ouvrir','Fermer',
+    'Donner','Prendre'
+  ]
+};
+
+const names = {
+  repas:'Le repas',
+  sommeil:'Le sommeil',
+  soins:'Les soins',
+  jeux:'Jeux et activités',
+  emotions:'Émotions et relations',
+  mouvements:'Mouvements et actions'
+};
+
+const words = Object.entries(groups).flatMap(
+  ([category,list]) =>
+    list.map(word => ({word,category}))
+);
+
+const grid = document.getElementById('signs');
+const search = document.getElementById('search');
+const count = document.getElementById('count');
+const empty = document.getElementById('empty');
+const buttons = [...document.querySelectorAll('.category')];
+
+let selected = '';
+
+function normalize(text) {
+  return text.normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase();
+}
+
+function render() {
+  const q = normalize(search.value.trim());
+
+  const found = words.filter(item =>
+    (!selected || item.category === selected) &&
+    normalize(item.word).includes(q)
+  );
+
+  grid.replaceChildren();
+
+  for (const item of found) {
+    const card = document.createElement('article');
+    card.className = 'sign-card';
+
+    const visual = document.createElement('div');
+    visual.className = 'sign-image';
+
+    const symbol = document.createElement('span');
+    symbol.textContent = '🤟';
+    symbol.setAttribute('aria-hidden','true');
+
+    const placeholder = document.createElement('small');
+    placeholder.textContent =
+      'Illustration du mouvement à ajouter après vérification';
+
+    visual.append(symbol,placeholder);
+
+    const body = document.createElement('div');
+    body.className = 'sign-body';
+
+    const status = document.createElement('span');
+    status.className = 'pending';
+    status.textContent = 'Signe à documenter';
+
+    const title = document.createElement('h3');
+    title.textContent = item.word;
+
+    const description = document.createElement('p');
+    description.textContent = names[item.category];
+
+    const link = document.createElement('a');
+    link.href = 'https://dico.elix-lsf.fr/';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'Consulter Elix';
+    link.setAttribute(
+      'aria-label',
+      'Consulter Elix pour rechercher ' + item.word
+    );
+
+    body.append(status,title,description,link);
+    card.append(visual,body);
+    grid.append(card);
+  }
+
+  count.textContent =
+    found.length + ' mot' +
+    (found.length > 1 ? 's' : '') +
+    ' dans cette sélection';
+
+  empty.style.display = found.length ? 'none' : 'block';
+
+  buttons.forEach(button => {
+    button.setAttribute(
+      'aria-pressed',
+      String(button.dataset.category === selected)
+    );
+  });
+}
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    selected = selected === button.dataset.category
+      ? ''
+      : button.dataset.category;
+
+    render();
+
+    document.getElementById('imagier-title')
+      .scrollIntoView({
+        behavior:'smooth',
+        block:'start'
+      });
+  });
+});
+
+search.addEventListener('input',render);
+
+document.getElementById('reset').addEventListener('click',() => {
+  selected = '';
+  search.value = '';
+  render();
+});
+
+render();
+</script>
+
+</body>
+</html>
+

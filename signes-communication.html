@@ -763,14 +763,16 @@ function render() {
       credit.style.fontSize = '12px';
       credit.style.marginTop = '10px';
 
-      credit.textContent = file.includes('Laura_Jauvert')
-        ? 'Vidéo : Laura Jauvert · '
-        : 'Vidéo : auteur et licence à vérifier · ';
-
+      credit.textContent = isYouTube(file)
+  ? 'Vidéo YouTube : auteur et droits à vérifier · '
+  : file.includes('Laura_Jauvert')
+    ? 'Vidéo : Laura Jauvert · '
+    : 'Vidéo : auteur et licence à vérifier · ';
       const source = document.createElement('a');
 
-      source.href =
-        'https://commons.wikimedia.org/wiki/File:' + file;
+      source.href = isYouTube(file)
+  ? 'https://www.youtube.com/watch?v=' + file.replace('youtube:', '')
+  : 'https://commons.wikimedia.org/wiki/File:' + file;
 
       source.target = '_blank';
       source.rel = 'noopener noreferrer';

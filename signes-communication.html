@@ -602,7 +602,9 @@ function render() {
   visual.replaceChildren();
 
   const video = document.createElement('video');
-  video.src = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/LL-Q33302_(fsl)-Laura_Jauvert-Boire.webm';
+  video.src = item.word === 'Manger'
+  ? 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Manger.webm'
+  : 'https://commons.wikimedia.org/wiki/Special:Redirect/file/LL-Q33302_(fsl)-Laura_Jauvert-Boire.webm';
   video.preload = 'metadata';
   video.playsInline = true;
   video.controls = true;

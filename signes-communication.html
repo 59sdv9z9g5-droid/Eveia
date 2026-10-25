@@ -613,7 +613,9 @@ function render() {
     description.textContent = names[item.category];
 
     const link = document.createElement('a');
-    link.href = 'https://dico.elix-lsf.fr/';
+    link.href = item.word === 'Manger'
+  ? 'https://dico.elix-lsf.fr/dictionnaire/manger/v.-186018'
+  : 'https://dico.elix-lsf.fr/';
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.textContent = 'Consulter Elix';

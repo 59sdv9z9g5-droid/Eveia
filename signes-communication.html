@@ -598,13 +598,14 @@ const videosLSF = {
   Canard:'LL-Q33302_(fsl)-Laura_Jauvert-Canard.webm',
 
   Dormir:'LL-Q33302_(fsl)-Laura_Jauvert-Dormir.webm',
-  Doudou:'LL-Q33302_(fsl)-Laura_Jauvert-Doudou.webm',
-  'Tétine':'LL-Q33302_(fsl)-Laura_Jauvert-Tétine.webm',
+  Doudou:'youtube:LslTzRQCqH8',
+'Tétine':'youtube:kzvIZyY8KnE',
   'Fatigué':'LL-Q33302_(fsl)-Laura_Jauvert-Fatigué.webm',
   'Réveil':'Se réveiller.webm',
 Changer:'Changer.webm'
 };
-
+const isYouTube = file =>
+  typeof file === 'string' && file.startsWith('youtube:');
 const words = Object.entries(groups).flatMap(
   ([category,list]) =>
     list.map(word => ({word,category}))
@@ -666,7 +667,26 @@ function render() {
       visual.append(symbol,label);
     }
 
-    if (file) {
+    if (file && isYouTube(file)) {
+
+  const iframe = document.createElement('iframe');
+
+  iframe.src =
+    'https://www.youtube-nocookie.com/embed/' +
+    file.replace('youtube:', '') +
+    '?rel=0';
+
+  iframe.title = 'Démonstration LSF : ' + item.word;
+  iframe.loading = 'lazy';
+  iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+  iframe.allowFullscreen = true;
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.border = '0';
+
+  visual.append(iframe);
+
+} else if (file) {
 
       const video = document.createElement('video');
 

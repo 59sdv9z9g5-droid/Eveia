@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -223,6 +222,12 @@ h3 { color:#526b50; }
   max-width:190px;
 }
 
+.sign-image video {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
 .sign-body { padding:16px 18px 20px; }
 
 .sign-body h3 {
@@ -290,6 +295,7 @@ footer p { margin:4px; }
 
 @media(max-width:760px) {
   main { background-size:26% auto,26% auto; }
+
   .categories,.sign-grid {
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
@@ -334,13 +340,17 @@ footer p { margin:4px; }
   <a href="comptines.html">Comptines</a>
   <a href="recettes.html">Recettes</a>
   <a href="eveiapedia.html">EveïaPédia</a>
-  <a href="signes-communication.html" aria-current="page">Signes & communication</a>
+  <a href="signes-communication.html" aria-current="page">
+    Signes & communication
+  </a>
 </nav>
 
 <main>
 
 <section class="intro">
-  <span class="tag">Communication gestuelle associée à la parole · 0–3 ans</span>
+  <span class="tag">
+    Communication gestuelle associée à la parole · 0–3 ans
+  </span>
 
   <h2>Des signes pour accompagner les mots</h2>
 
@@ -351,9 +361,11 @@ footer p { margin:4px; }
   </p>
 
   <p>
-    Nous privilégions les <strong>signes authentiques de la LSF</strong>,
-    associés à la parole. Chaque démonstration sera vérifiée
-    avant d'être ajoutée.
+    Nous privilégions les
+    <strong>signes authentiques de la LSF</strong>,
+    associés à la parole.
+    Chaque démonstration doit être vérifiée
+    avant d'être considérée comme validée.
   </p>
 </section>
 
@@ -363,37 +375,43 @@ footer p { margin:4px; }
 
   <div class="categories">
 
-    <button type="button" class="category" data-category="repas" aria-pressed="false">
+    <button type="button" class="category"
+      data-category="repas" aria-pressed="false">
       <span class="emoji">🍎</span>
       <strong>Le repas</strong>
       <small>Manger, boire, encore, fini…</small>
     </button>
 
-    <button type="button" class="category" data-category="sommeil" aria-pressed="false">
+    <button type="button" class="category"
+      data-category="sommeil" aria-pressed="false">
       <span class="emoji">🌙</span>
       <strong>Le sommeil</strong>
       <small>Dormir, doudou, tétine…</small>
     </button>
 
-    <button type="button" class="category" data-category="soins" aria-pressed="false">
+    <button type="button" class="category"
+      data-category="soins" aria-pressed="false">
       <span class="emoji">🫧</span>
       <strong>Les soins</strong>
       <small>Changer, laver, toilettes…</small>
     </button>
 
-    <button type="button" class="category" data-category="jeux" aria-pressed="false">
+    <button type="button" class="category"
+      data-category="jeux" aria-pressed="false">
       <span class="emoji">🧸</span>
       <strong>Jeux et activités</strong>
       <small>Jouer, livre, musique…</small>
     </button>
 
-    <button type="button" class="category" data-category="emotions" aria-pressed="false">
+    <button type="button" class="category"
+      data-category="emotions" aria-pressed="false">
       <span class="emoji">❤️</span>
       <strong>Émotions et relations</strong>
       <small>Bonjour, câlin, triste…</small>
     </button>
 
-    <button type="button" class="category" data-category="mouvements" aria-pressed="false">
+    <button type="button" class="category"
+      data-category="mouvements" aria-pressed="false">
       <span class="emoji">🌱</span>
       <strong>Mouvements et actions</strong>
       <small>Tomber, grimper, marcher…</small>
@@ -408,15 +426,14 @@ footer p { margin:4px; }
 
   <p>
     Choisissez un thème ou recherchez un mot.
-    Les illustrations des mouvements seront ajoutées
-    après vérification de leur exactitude.
+    Les démonstrations seront complétées progressivement.
   </p>
 
   <div class="toolbar">
     <label>
       Rechercher un signe
       <input id="search" type="search"
-             placeholder="Ex. tomber, encore, dormir…">
+        placeholder="Ex. tomber, encore, dormir…">
     </label>
 
     <button type="button" id="reset">
@@ -479,16 +496,17 @@ footer p { margin:4px; }
   <details>
     <summary>Comment assurer la fiabilité des signes ?</summary>
     <p>
-      Pour chaque signe, nous vérifierons la forme des mains,
+      Pour chaque signe, il faut vérifier la forme des mains,
       l'orientation, l'emplacement et le mouvement
       à partir de démonstrations fiables,
       notamment le
-      <a href="https://dico.elix-lsf.fr/" target="_blank" rel="noopener noreferrer">
+      <a href="https://dico.elix-lsf.fr/"
+        target="_blank" rel="noopener noreferrer">
         dictionnaire Elix
       </a>.
       Certaines variantes existent.
-      Aucune illustration non vérifiée ne sera présentée
-      comme un signe LSF.
+      Aucune démonstration non vérifiée ne doit être
+      présentée comme définitivement validée.
     </p>
   </details>
 
@@ -515,12 +533,11 @@ footer p { margin:4px; }
 </footer>
 
 <script>
-repas: [
-  'Manger','Boire','Encore','Fini',
-  'Eau','Bon','Merci','Poisson'
-],
-sommeil: [
 
+const groups = {
+  repas: [
+    'Manger','Boire','Encore','Fini',
+    'Eau','Bon','Merci','Poisson'
   ],
   sommeil: [
     'Dormir','Doudou','Tétine',
@@ -535,9 +552,8 @@ sommeil: [
     'Aider','Attendre','Regarder'
   ],
   emotions: [
-  'Bonjour','Au revoir','Content','Triste',
-  'Peur','Câlin','Mal','Papa','Maman','Oui'
-
+    'Bonjour','Au revoir','Content','Triste',
+    'Peur','Câlin','Mal','Papa','Maman','Oui'
   ],
   mouvements: [
     'Tomber','Grimper','Marcher','Courir',
@@ -556,6 +572,23 @@ const names = {
   mouvements:'Mouvements et actions'
 };
 
+// Catalogue des vidéos déjà ajoutées.
+// Certaines références restent à vérifier individuellement.
+
+const videosLSF = {
+  Manger:'Manger.webm',
+  Boire:'LL-Q33302_(fsl)-Laura_Jauvert-Boire.webm',
+  Encore:'Encore.webm',
+  Fini:'Finir.webm',
+  Eau:'Eau.webm',
+  Bon:'LL-Q33302_(fsl)-Laura_Jauvert-Bon.webm',
+  Merci:'Merci.webm',
+  Bonjour:'LL-Q33302_(fsl)-Laura_Jauvert-Bonjour.webm',
+  Oui:'LL-Q33302_(fsl)-Laura_Jauvert-Oui.webm',
+  Poisson:'LL-Q33302_(fsl)-Laura_Jauvert-Poisson.webm',
+  Restaurant:'LL-Q33302_(fsl)-Laura_Jauvert-Restaurant.webm'
+};
+
 const words = Object.entries(groups).flatMap(
   ([category,list]) =>
     list.map(word => ({word,category}))
@@ -568,19 +601,7 @@ const empty = document.getElementById('empty');
 const buttons = [...document.querySelectorAll('.category')];
 
 let selected = '';
-const videosLSF = {
-  Manger: 'Manger.webm',
-  Boire: 'LL-Q33302_(fsl)-Laura_Jauvert-Boire.webm',
-  Encore: 'Encore.webm',
-  Fini: 'Finir.webm',
-  Eau: 'Eau.webm',
-  Bon: 'LL-Q33302_(fsl)-Laura_Jauvert-Bon.webm',
-  Merci: 'Merci.webm',
-Bonjour: 'LL-Q33302_(fsl)-Laura_Jauvert-Bonjour.webm',
-Oui: 'LL-Q33302_(fsl)-Laura_Jauvert-Oui.webm',
-Poisson: 'LL-Q33302_(fsl)-Laura_Jauvert-Poisson.webm',
-Restaurant: 'LL-Q33302_(fsl)-Laura_Jauvert-Restaurant.webm'
-};
+
 function normalize(text) {
   return text.normalize('NFD')
     .replace(/[\u0300-\u036f]/g,'')
@@ -598,60 +619,83 @@ function render() {
   grid.replaceChildren();
 
   for (const item of found) {
+
     const card = document.createElement('article');
     card.className = 'sign-card';
 
     const visual = document.createElement('div');
     visual.className = 'sign-image';
 
-    const symbol = document.createElement('span');
-    symbol.textContent = '🤟';
-    symbol.setAttribute('aria-hidden','true');
-
-    const placeholder = document.createElement('small');
-    placeholder.textContent =
-      'Illustration du mouvement à ajouter après vérification';
-
-    visual.append(symbol,placeholder);
-  if (videosLSF[item.word]) {
-  visual.replaceChildren();
-
-  const video = document.createElement('video');
-  video.src =
-  'https://commons.wikimedia.org/wiki/Special:Redirect/file/'
-  + videosLSF[item.word];
-  video.preload = 'metadata';
-  video.playsInline = true;
-  video.controls = true;
-  video.setAttribute('aria-label', 'Démonstration LSF du signe ' + item.word);
-
-  let repetitions = 0;
-
-  video.addEventListener('play', () => {
-    if (video.currentTime === 0) repetitions = 0;
-  });
-
-  video.addEventListener('ended', () => {
-    repetitions++;
-    if (repetitions < 3) {
-      video.currentTime = 0;
-      video.play().catch(() => {});
-    }
-  });
-
-  video.style.width = '100%';
-  video.style.height = '100%';
-  video.style.objectFit = 'contain';
-
-  visual.append(video);
-}
-
     const body = document.createElement('div');
     body.className = 'sign-body';
 
+    const file = videosLSF[item.word];
+
     const status = document.createElement('span');
     status.className = 'pending';
-    status.textContent = 'Signe à documenter';
+    status.textContent = file
+      ? 'Vidéo à vérifier'
+      : 'Signe à documenter';
+
+    function showPlaceholder(message) {
+      visual.replaceChildren();
+
+      const symbol = document.createElement('span');
+      symbol.textContent = '🤟';
+      symbol.setAttribute('aria-hidden','true');
+
+      const label = document.createElement('small');
+      label.textContent = message;
+
+      visual.append(symbol,label);
+    }
+
+    if (file) {
+
+      const video = document.createElement('video');
+
+      video.src =
+        'https://commons.wikimedia.org/wiki/Special:Redirect/file/'
+        + file;
+
+      video.preload = 'metadata';
+      video.playsInline = true;
+      video.controls = true;
+
+      video.setAttribute(
+        'aria-label',
+        'Démonstration LSF du signe ' + item.word
+      );
+
+      let repetitions = 0;
+
+      video.addEventListener('play', () => {
+        if (video.currentTime === 0) {
+          repetitions = 0;
+        }
+      });
+
+      video.addEventListener('ended', () => {
+        repetitions++;
+
+        if (repetitions < 3) {
+          video.currentTime = 0;
+          video.play().catch(() => {});
+        }
+      });
+
+      video.addEventListener('error', () => {
+        status.textContent = 'Vidéo indisponible';
+        showPlaceholder('Vidéo temporairement indisponible');
+      });
+
+      visual.append(video);
+
+    } else {
+      showPlaceholder(
+        'Démonstration à ajouter après vérification'
+      );
+    }
 
     const title = document.createElement('h3');
     title.textContent = item.word;
@@ -660,33 +704,46 @@ function render() {
     description.textContent = names[item.category];
 
     const link = document.createElement('a');
-    link.href = item.word === 'Manger'
-  ? 'https://dico.elix-lsf.fr/dictionnaire/manger'
-  : item.word === 'Boire'
-  ? 'https://dico.elix-lsf.fr/dictionnaire/boire'
-  : 'https://dico.elix-lsf.fr/';
+
+    link.href = ['Manger','Boire'].includes(item.word)
+      ? 'https://dico.elix-lsf.fr/dictionnaire/'
+        + normalize(item.word)
+      : 'https://dico.elix-lsf.fr/';
+
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.textContent = 'Consulter Elix';
+
     link.setAttribute(
       'aria-label',
       'Consulter Elix pour rechercher ' + item.word
     );
 
     body.append(status,title,description,link);
-   if (videosLSF[item.word]) {
-  const credit = document.createElement('p');
-  credit.style.fontSize = '12px';
-  credit.textContent = 'Vidéo LSF : Laura Jauvert · ';
 
-const source = document.createElement('a');
-source.href = 'https://commons.wikimedia.org/wiki/File:' + videosLSF[item.word];
-source.target = '_blank';
-source.rel = 'noopener noreferrer';
-source.textContent = 'Source et licence';
-credit.append(source);
-  body.append(credit);
-}
+    if (file) {
+
+      const credit = document.createElement('p');
+      credit.style.fontSize = '12px';
+      credit.style.marginTop = '10px';
+
+      credit.textContent = file.includes('Laura_Jauvert')
+        ? 'Vidéo : Laura Jauvert · '
+        : 'Vidéo : auteur et licence à vérifier · ';
+
+      const source = document.createElement('a');
+
+      source.href =
+        'https://commons.wikimedia.org/wiki/File:' + file;
+
+      source.target = '_blank';
+      source.rel = 'noopener noreferrer';
+      source.textContent = 'Source et licence';
+
+      credit.append(source);
+      body.append(credit);
+    }
+
     card.append(visual,body);
     grid.append(card);
   }
@@ -696,7 +753,8 @@ credit.append(source);
     (found.length > 1 ? 's' : '') +
     ' dans cette sélection';
 
-  empty.style.display = found.length ? 'none' : 'block';
+  empty.style.display =
+    found.length ? 'none' : 'block';
 
   buttons.forEach(button => {
     button.setAttribute(
@@ -708,9 +766,11 @@ credit.append(source);
 
 buttons.forEach(button => {
   button.addEventListener('click', () => {
-    selected = selected === button.dataset.category
-      ? ''
-      : button.dataset.category;
+
+    selected =
+      selected === button.dataset.category
+        ? ''
+        : button.dataset.category;
 
     render();
 
@@ -724,15 +784,16 @@ buttons.forEach(button => {
 
 search.addEventListener('input',render);
 
-document.getElementById('reset').addEventListener('click',() => {
-  selected = '';
-  search.value = '';
-  render();
-});
+document.getElementById('reset')
+  .addEventListener('click',() => {
+    selected = '';
+    search.value = '';
+    render();
+  });
 
 render();
+
 </script>
 
 </body>
 </html>
-

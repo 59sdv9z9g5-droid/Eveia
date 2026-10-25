@@ -598,6 +598,36 @@ function render() {
       'Illustration du mouvement à ajouter après vérification';
 
     visual.append(symbol,placeholder);
+    if (item.word === 'Boire') {
+  visual.replaceChildren();
+
+  const video = document.createElement('video');
+  video.src = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/LL-Q33302_(fsl)-Laura_Jauvert-Boire.webm';
+  video.preload = 'metadata';
+  video.playsInline = true;
+  video.controls = true;
+  video.setAttribute('aria-label', 'Démonstration LSF du signe Boire');
+
+  let repetitions = 0;
+
+  video.addEventListener('play', () => {
+    if (video.currentTime === 0) repetitions = 0;
+  });
+
+  video.addEventListener('ended', () => {
+    repetitions++;
+    if (repetitions < 3) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    }
+  });
+
+  video.style.width = '100%';
+  video.style.height = '100%';
+  video.style.objectFit = 'contain';
+
+  visual.append(video);
+}
 
     const body = document.createElement('div');
     body.className = 'sign-body';
@@ -625,6 +655,12 @@ function render() {
     );
 
     body.append(status,title,description,link);
+    if (item.word === 'Boire') {
+  const credit = document.createElement('p');
+  credit.style.fontSize = '12px';
+  credit.textContent = 'Vidéo : Laura Jauvert, Wikimedia Commons, CC BY 3.0';
+  body.append(credit);
+}
     card.append(visual,body);
     grid.append(card);
   }

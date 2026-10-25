@@ -565,7 +565,15 @@ const empty = document.getElementById('empty');
 const buttons = [...document.querySelectorAll('.category')];
 
 let selected = '';
-
+const videosLSF = {
+  Manger: 'Manger.webm',
+  Boire: 'LL-Q33302_(fsl)-Laura_Jauvert-Boire.webm',
+  Encore: 'Encore.webm',
+  Fini: 'Finir.webm',
+  Eau: 'Eau.webm',
+  Bon: 'LL-Q33302_(fsl)-Laura_Jauvert-Bon.webm',
+  Merci: 'Merci.webm'
+};
 function normalize(text) {
   return text.normalize('NFD')
     .replace(/[\u0300-\u036f]/g,'')
@@ -598,7 +606,7 @@ function render() {
       'Illustration du mouvement à ajouter après vérification';
 
     visual.append(symbol,placeholder);
-  if (item.word === 'Boire' || item.word === 'Manger') {
+  if (videosLSF[item.word]) {
   visual.replaceChildren();
 
   const video = document.createElement('video');

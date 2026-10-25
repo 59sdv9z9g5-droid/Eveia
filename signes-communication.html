@@ -598,7 +598,7 @@ function render() {
       'Illustration du mouvement à ajouter après vérification';
 
     visual.append(symbol,placeholder);
-    if (item.word === 'Boire') {
+  if (item.word === 'Boire' || item.word === 'Manger') {
   visual.replaceChildren();
 
   const video = document.createElement('video');
@@ -606,7 +606,7 @@ function render() {
   video.preload = 'metadata';
   video.playsInline = true;
   video.controls = true;
-  video.setAttribute('aria-label', 'Démonstration LSF du signe Boire');
+  video.setAttribute('aria-label', 'Démonstration LSF du signe ' + item.word);
 
   let repetitions = 0;
 
@@ -657,7 +657,7 @@ function render() {
     );
 
     body.append(status,title,description,link);
-    if (item.word === 'Boire') {
+    if (item.word === 'Boire' || item.word === 'Manger') {
   const credit = document.createElement('p');
   credit.style.fontSize = '12px';
   credit.textContent = 'Vidéo : Laura Jauvert, Wikimedia Commons, CC BY 3.0';
